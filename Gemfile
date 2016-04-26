@@ -13,6 +13,8 @@ gem "therubyracer"
 gem "less-rails-bootstrap"
 gem "minitest-rails"
 gem 'responders'
+gem "faraday"
+gem "figaro"
 
 group :development do
   gem "spring"
