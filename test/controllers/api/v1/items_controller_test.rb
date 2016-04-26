@@ -10,6 +10,11 @@ class Api::V1::ItemsControllerTest < ActionController::TestCase
     assert_response :success
     # assert_includes @response.body, "Items"
   end
+
+  test "should return single item" do
+    get :show
+    assert_response :success
+  end
 end
 
 # When I send a GET request to `/api/v1/items`
