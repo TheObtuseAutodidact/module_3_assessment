@@ -7,4 +7,10 @@ class Api::V1::ItemsController < ApplicationController
   def show
     respond_with Item.find_by(id: params[:id])
   end
+
+  def destroy
+    item = Item.find_by(id: params[:id])
+    item.destroy
+    render 'index'
+  end
 end

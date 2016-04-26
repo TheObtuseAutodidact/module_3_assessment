@@ -12,8 +12,17 @@ class Api::V1::ItemsControllerTest < ActionController::TestCase
   end
 
   test "should return single item" do
-    get :show
+    item = Item.create(name: "test", description: "testing")
+    get :show, id: item
     assert_response :success
+  end
+
+  test "should delete single item" do
+    item = Item.create(name: "test", description: "testing")
+    assert_difference("Item.count", -1) do
+      delete :destroy, id: item
+    end
+    assert_response 204
   end
 end
 
