@@ -21,8 +21,16 @@ class Api::V1::ItemsControllerTest < ActionController::TestCase
     item = Item.create(name: "test", description: "testing")
     assert_difference("Item.count", -1) do
       delete :destroy, id: item
+      assert_response 204
     end
-    assert_response 204
+  end
+
+  test "should add single item" do
+    item = Item.create(name: "test", description: "testing")
+    assert_difference("Item.count", 1) do
+      post :create, id: item
+      assert_response 200
+    end
   end
 end
 

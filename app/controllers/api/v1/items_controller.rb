@@ -1,4 +1,4 @@
-class Api::V1::ItemsController < ApplicationController
+class Api::V1::ItemsController < Api::ApiController
   respond_to :json
   def index
     respond_with Item.all
@@ -11,6 +11,6 @@ class Api::V1::ItemsController < ApplicationController
   def destroy
     item = Item.find_by(id: params[:id])
     item.destroy
-    render Item.all
+    respond_with Item.all
   end
 end
