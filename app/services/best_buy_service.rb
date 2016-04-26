@@ -7,7 +7,8 @@ class BestBuyService
   end
 
   def search(keyword)
-    connection.get("products((search=#{keyword})&salePrice<500&categoryPath.id=pcmcat209000050006)?show=name,sku,salePrice,shortDescription,customerReviewAverage,image&format=json")
+    JSON.parse(connection.get("products((search=#{keyword})?show=name,sku,salePrice,shortDescription,customerReviewAverage,image&format=json").body)
   # endsku, name, customer average review, short description, sale price, and image
+end
 
 end
