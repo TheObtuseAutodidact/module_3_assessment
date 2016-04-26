@@ -7,7 +7,7 @@ class BestBuyService
   end
 
   def search(keyword)
-    JSON.parse(connection.get("products(search=#{keyword})?show=name,sku,salePrice,shortDescription,customerReviewAverage,image&pageSize=15&format=json").body)
+    JSON.parse(connection.get("products(search=#{keyword})?show=name,sku,salePrice,shortDescription,customerReviewAverage,image&pageSize=15&format=json").body)['products']
   # endsku, name, customer average review, short description, sale price, and image
 end
 
