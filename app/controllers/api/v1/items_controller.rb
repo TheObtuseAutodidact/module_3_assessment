@@ -11,6 +11,6 @@ class Api::V1::ItemsController < ApplicationController
   def destroy
     item = Item.find_by(id: params[:id])
     item.destroy
-    render 'index'
+    render Item.all
   end
 end
