@@ -6,7 +6,9 @@ class Api::V1::ItemsControllerTest < ActionController::TestCase
   # end
 
   test "should get index of all items" do
-    get 
+    get :index
+    assert_response :success
+    # assert_includes @response.body, "Items"
   end
 end
 
